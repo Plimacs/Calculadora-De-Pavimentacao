@@ -1,15 +1,16 @@
 const receber = require('prompt-sync')({sigint: false});
-var carga = 0, cargaCalc = 0, dias = 0, horas = 0, continuar;
 
-carga = receber(`Digite em toneladas a carga total a ser pavimentada: `)
+let carga = receber(`Digite em toneladas a carga total a ser pavimentada: `)
 console.log(`Você digitou ${carga} t toneladas.`)
-continuar = receber(`Digite "y" para continuar, ou "n" para editar: `)
+let continuar = receber(`Digite "y" para continuar, ou "n" para editar: `)
 
-if (continuar == 'n'){
+if (continuar.toLowerCase() === 'n'){
     carga = receber(`Digite em toneladas a carga total a ser pavimentada: `)
 }
 
-cargaCalc = carga
+// reformular todo o loop
+let cargaCalc = carga
+let dias = 0, horas = 0;
 
 while(cargaCalc != 0){
     if (cargaCalc != 0){
@@ -31,4 +32,5 @@ if(horas >= 24){
 
 dias = dias + 1;
 
+// reformular resposta mais precisa
 console.log(`você vai precisar de ${dias.toFixed(0)} dias ou ${horas.toFixed(2)} horas para pavimentar ${carga}t toneladas`);
