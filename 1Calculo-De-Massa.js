@@ -31,7 +31,7 @@ if (continuar.toLowerCase() === 'n'){
             espessura = receber(`Digite a espessura que será aplicada (em quilômetros, ex: 3 centimetros = "0.03"): `)
             break;
         default:
-            console.log((`Opção inválida!`));
+            console.log(`Opção inválida!`);
             return;
     }
 }
