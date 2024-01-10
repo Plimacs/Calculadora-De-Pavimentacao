@@ -3,13 +3,9 @@ const receber = require('prompt-sync')({sigint: false});
 console.log(`Rendimento por caminhão`)
 
 let carga = receber(`Digite a carga do seu caminhão (em toneladas): `)
-let densidade = receber(`Digite a densidade da sua massa asfáltica (se não responder, será atribuido o valor padrão): `)
+let densidade = receber(`Digite a densidade da sua massa asfáltica (se não responder, será atribuido o valor padrão): `) || 2.4;
 let largura = receber(`Digite a largura do asfalto (em quilômetros, ex: 1 metro e 4 centimetros = "0.14"): `)
 let espessura = receber(`Digite a espessura do asfalto (em quilômetros, ex: 3 centimetros = "0.03"): `)
-
-if (densidade == 0){
-    densidade = densidade + 2.4
-}
 
 console.log(`você digitou ${carga}t toneladas, ${densidade} de densidade da massa asfáltica, ${largura}km de largura e ${espessura}Km de espessura.`)
 
@@ -36,10 +32,6 @@ if (continuar.toLowerCase() === 'n'){
             console.log(`Opção inválida!`)
             return;
     }
-}
-
-if (densidade == 0){
-    densidade = densidade + 2.4
 }
 
 let resultado = carga / densidade / largura / espessura;

@@ -2,15 +2,9 @@ const receber = require('prompt-sync')({sigint: false});
 
 console.log(`Calculadora de Massa Asfáltica`)
 
-// validação das respostas com função para obter os valores
 let area = receber(`Digite a área que será pavimentada (em quilômetros quadrados): `)
-let densidade = receber(`Digite a densidade da sua massa asfáltica (se não responder, será atribuido o valor padrão): `)
+let densidade = receber(`Digite a densidade da sua massa asfáltica (se não responder, será atribuido o valor padrão): `) || 2.4;
 let espessura = receber(`Digite a espessura que será aplicada (em quilômetros, ex: 3 centimetros = "0.03"): `)
-
-// pesquisar uma maneira mais "limpa" para isto
-if (densidade == 0){
-    densidade = densidade + 2.4
-}
 
 console.log(`Você digitou ${area}km² quilômetros quadrados, ${densidade} de densidade da massa asfáltica e ${espessura}km de espessura.`)
 
@@ -34,10 +28,6 @@ if (continuar.toLowerCase() === 'n'){
             console.log(`Opção inválida!`);
             return;
     }
-}
-
-if (densidade == 0){
-    densidade = densidade + 2.4
 }
 
 console.log(`${area}km² quilômetros quadrados, ${densidade} de densidade da massa asfáltica e ${espessura}km de espessura.`)
